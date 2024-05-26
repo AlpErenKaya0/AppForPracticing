@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
+    // id ("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -53,7 +56,24 @@ android {
 }
 
 dependencies {
-implementation("androidx.appcompat:appcompat:1.6.1")
+    val room_version ="2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation ("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+    implementation ("androidx.room:room-paging:$room_version")
+
+    implementation("com.google.dagger:hilt-android:2.44")
+    ksp("com.google.dagger:hilt-android-compiler:2.44")
+
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+
+    implementation ("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+
+
+
+    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation ("androidx.navigation:navigation-compose:2.7.4")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
