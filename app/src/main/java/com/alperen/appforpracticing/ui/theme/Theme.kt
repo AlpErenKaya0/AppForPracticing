@@ -15,6 +15,10 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.alperen.appforpracticing.presentation.screens.util.LocalAppDimens
+import com.alperen.appforpracticing.presentation.screens.util.LocalOrientationMode
+import com.alperen.appforpracticing.presentation.screens.util.ProvideAppUtils
+
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -40,6 +44,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun AppForPracticingTheme(
+    windowSizeClass: WindowSizeClass,
     darkTheme: Boolean,
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
@@ -54,6 +59,35 @@ fun AppForPracticingTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+    val orientation = when {
+        windowSizeClass.width.size > windowSizeClass.height.size -> Orientation.Portrait
+        else -> Orientation.Portrait
+    }
+    val sizeThatMatters = when(orientation){
+        Orientation.Portrait -> windowSizeClass.width
+        else -> windowSizeClass.height
+    }
+    val dimensions = when (sizeThatMatters) {
+        is WindowSize.Small -> smallDimensions
+        is WindowSize.Compact -> compactDimensions
+        is WindowSize.Medium -> mediumDimensions
+        else -> largeDimensions
+    }
+    val typography = when(sizeThatMatters){
+        is WindowSize.Small -> TypographySmall
+        is WindowSize.Compact -> TypographyCompact
+        is WindowSize.Medium -> TypographyMedium
+        else -> TypographyBig
+    }
+
+    ProvideAppUtils(dimensions = dimensions, orientation = orientation) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = typography,
+            shapes = shapes,
+            content = content
+        )
+    }
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
@@ -65,7 +99,16 @@ fun AppForPracticingTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = typography,
         content = content
     )
+}
+object AppTheme{
+    val dimens:Dimensions
+        @Composable
+        get() = LocalAppDimens.current
+
+    val orientation:Orientation
+        @Composable
+        get() = LocalOrientationMode.current
 }
