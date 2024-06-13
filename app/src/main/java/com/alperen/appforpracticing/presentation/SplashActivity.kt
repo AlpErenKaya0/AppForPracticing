@@ -29,6 +29,8 @@ import com.alperen.appforpracticing.presentation.screens.Navigation
 import com.alperen.appforpracticing.presentation.screens.Screen
 import com.alperen.appforpracticing.presentation.screens.ui.theme.AppForPracticingTheme
 import kotlinx.coroutines.delay
+//uygulamaya girmeden işlevlerin yapılabilmesini sağlayan widgetlara bakılacak
+//yukarıdaki yanlış, shortcut
 
 class SplashActivity : ComponentActivity() {
     val viewModel: SplashActivityViewModel by viewModels()

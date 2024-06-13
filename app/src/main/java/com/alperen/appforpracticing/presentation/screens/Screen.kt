@@ -5,4 +5,5 @@ sealed class Screen(val route:String) {
     object SecondScreen:Screen("second_screen")
     object ThirdScreen:Screen(route = "third_screen")
     object SplashScreen:Screen("splash_screen")
+    object AppShortcutsScreen:Screen("app_shortcuts_screen")
 }
