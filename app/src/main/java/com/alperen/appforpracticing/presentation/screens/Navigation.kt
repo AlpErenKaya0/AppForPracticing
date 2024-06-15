@@ -1,5 +1,6 @@
 package com.alperen.appforpracticing.presentation.screens
 
+import android.content.Intent
 import com.alperen.appforpracticing.presentation.SplashScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
@@ -28,7 +29,9 @@ fun Navigation() {
             SplashScreen(navController = navController, viewModel = SplashActivityViewModel())
         }
         composable(route="app_shortcuts_screen"){
-            AppShortcutsScreen(navController = navController, viewModel = AppShortcutViewModel())
+            AppShortcutsScreen(navController = navController, viewModel = AppShortcutViewModel(),
+                //aşağıdaki intent doğru mu bilmiyorum
+         intent = Intent())
         }
     }
 

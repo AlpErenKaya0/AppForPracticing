@@ -13,20 +13,16 @@
         android:theme="@style/Theme.AppForPracticing"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.screens.PageDirectorActivity"
-            android:exported="false"
-            android:label="@string/title_activity_page_director"
-            android:theme="@style/Theme.AppForPracticing" />
-        <activity
             android:name=".presentation.SplashActivity"
             android:exported="true"
             android:label="@string/title_activity_splash"
             android:theme="@style/Theme.AppForPracticing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data android:resource="@xml/shortcuts"
+                android:name="android.app.shortcuts"/>
         </activity>
     </application>
 

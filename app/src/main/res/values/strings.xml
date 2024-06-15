@@ -3,4 +3,8 @@
     <string name="logo">Image Logo</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_page_director">PageDirectorActivity</string>
+    <string name="short_label">Start Timer</string>
+    <string name="long_label">This Shortcuts starts the timer</string>
+    <string name="disabled_message">this shortcut disabled</string>
+
 </resources>
