@@ -37,7 +37,7 @@ fun SplashScreen(
         )
         delay(2000)
    //     navController.navigate(Screen.SecondScreen.route)
-        navController.navigate(Screen.AppShortcutsScreen.route)
+        navController.navigate(Screen.OnBoardingScreen.route)
 
     }
     Box(

@@ -23,6 +23,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.alperen.appforpracticing.biometric.BiometricPromptManager
+import com.alperen.appforpracticing.presentation.screens.Screen
+
 @Composable
 fun ThirdScreen(navController: NavController) {
      val promptManager by lazy{
@@ -91,6 +93,12 @@ fun ThirdScreen(navController: NavController) {
 
                                 }
                             )
+
+                        }
+                    }
+                    Column {
+                        Button(onClick = {navController.navigate(Screen.AppShortcutsScreen.route)} ) {
+                            Text(text ="go to another page")
 
                         }
                     }

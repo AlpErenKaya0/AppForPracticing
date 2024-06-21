@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.alperen.appforpracticing.presentation.AppShortcutsScreen
 import com.alperen.appforpracticing.presentation.FirstScreen
+import com.alperen.appforpracticing.presentation.OnBoardingScreen
 import com.alperen.appforpracticing.presentation.SecondScreen
 import com.alperen.appforpracticing.presentation.ThirdScreen
 import com.alperen.appforpracticing.presentation.ViewModels.AppShortcutViewModel
@@ -32,6 +33,9 @@ fun Navigation() {
             AppShortcutsScreen(navController = navController, viewModel = AppShortcutViewModel(),
                 //aşağıdaki intent doğru mu bilmiyorum
          intent = Intent())
+        }
+        composable(route = "on_boarding_screen") {
+            OnBoardingScreen(navController=navController)
         }
     }
 
