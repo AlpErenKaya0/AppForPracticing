@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.alperen.appforpracticing.presentation.AppShortcutsScreen
 import com.alperen.appforpracticing.presentation.FirstScreen
+import com.alperen.appforpracticing.presentation.OnboardingScreen
 import com.alperen.appforpracticing.presentation.SecondScreen
 import com.alperen.appforpracticing.presentation.ThirdScreen
 import com.alperen.appforpracticing.presentation.ViewModels.AppShortcutViewModel
@@ -27,6 +28,9 @@ fun Navigation() {
         }
         composable(route = "splash_screen") {
             SplashScreen(navController = navController, viewModel = SplashActivityViewModel())
+        }
+        composable(route="onboarding_screen"){
+            OnboardingScreen(navController = navController)
         }
         composable(route="app_shortcuts_screen"){
             AppShortcutsScreen(navController = navController, viewModel = AppShortcutViewModel(),
